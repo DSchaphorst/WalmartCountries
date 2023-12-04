@@ -23,6 +23,10 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     private val _countriesStatus: MutableLiveData<UIState> = MutableLiveData(UIState.LOADING)
     val countriesStatus: LiveData<UIState> get() = _countriesStatus
 
+    init {
+        pullCountriesData()
+    }
+
     fun pullCountriesData(){
         viewModelScope.launch(Dispatchers.IO) {
             val flowHolder: Flow<UIState> = flow {
@@ -33,7 +37,7 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
                         response.body()?.let {
                             Log.d(TAG, "pullCountriesData: $it")
                             emit(UIState.SUCCESS(it))
-                        } ?: throw NullResponseFromServer("Songs are null")
+                        } ?: throw NullResponseFromServer("Countries are null")
                     } else {
                         throw FailureResponseFromServer(response.errorBody()?.string())
                     }

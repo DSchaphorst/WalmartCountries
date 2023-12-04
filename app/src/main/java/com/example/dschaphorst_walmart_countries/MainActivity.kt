@@ -24,19 +24,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val mainAdapter by lazy {
-        MainAdapter() 
+        MainAdapter()
     }
 
-    private val mainViewModel by lazy {
-        ViewModelProvider(this)[MainViewModel::class.java]
-    }
+    lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        setObservers()
 
-        mainViewModel.pullCountriesData()
+        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        setObservers()
     }
 
     private fun setObservers(){
