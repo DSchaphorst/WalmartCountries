@@ -11,7 +11,7 @@ Retrofit
 OKHTTP
 Coroutines 
 
-First created simple data and UI for displaying the data as requested. Then connnected to the nextowrk and pulled data from JSON. Finally set data to the recycler view.
+First created simple data and UI for displaying the data as requested. Then connected to the network and pulled data from JSON. Finally set data to the recycler view.
 
 https://github.com/DSchaphorst/WalmartCountries/assets/116312332/bc500fcb-d6bc-4185-83ee-b35d0d1ec271
 
